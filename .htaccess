@@ -1,0 +1,21 @@
+1	# Training & Placement Portal — Apache hardening
+2	
+3	# Disable directory listing
+4	Options -Indexes
+5	
+6	# Protect sensitive files
+7	<FilesMatch "\.(sql|log|md|env)$">
+8	  Require all denied
+9	</FilesMatch>
+10	
+11	# Security headers
+12	<IfModule mod_headers.c>
+13	  Header set X-Content-Type-Options "nosniff"
+14	  Header set X-Frame-Options "SAMEORIGIN"
+15	  Header set X-XSS-Protection "1; mode=block"
+16	  Header set Referrer-Policy "strict-origin-when-cross-origin"
+17	</IfModule>
+18	
+19	# Prevent access to config/includes directly from browser if desired
+20	# (uncomment once app folders are finalized)
+21	# RedirectMatch 403 ^/config/
