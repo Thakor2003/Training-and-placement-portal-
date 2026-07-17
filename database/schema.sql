@@ -1,10 +1,10 @@
-1	-- ============================================================
-2	-- TRAINING & PLACEMENT PORTAL — DATABASE SCHEMA
-3	-- Engine: MySQL 8+  |  Charset: utf8mb4
-4	-- ============================================================
-5	
-6	CREATE DATABASE IF NOT EXISTS tpp_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-7	USE tpp_db;
+-- ============================================================
+-- TRAINING & PLACEMENT PORTAL — DATABASE SCHEMA
+-- Engine: MySQL 8+  |  Charset: utf8mb4
+-- ============================================================
+
+CREATE DATABASE IF NOT EXISTS tpp_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE tpp_db;
 8	
 9	SET FOREIGN_KEY_CHECKS = 0;
 10	
