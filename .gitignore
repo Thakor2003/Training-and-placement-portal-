@@ -1,0 +1,19 @@
+1	# Environment / local config
+2	config/local.php
+3	
+4	# Uploaded user files (keep folder structure, ignore contents)
+5	assets/uploads/resumes/*
+6	assets/uploads/offer_letters/*
+7	assets/uploads/company_logos/*
+8	assets/uploads/profile_photos/*
+9	!assets/uploads/**/.gitkeep
+10	
+11	# OS / editor junk
+12	.DS_Store
+13	Thumbs.db
+14	.vscode/
+15	.idea/
+16	
+17	# Logs
+18	*.log
+19	error_log
