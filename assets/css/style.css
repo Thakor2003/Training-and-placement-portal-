@@ -1,0 +1,315 @@
+1	/* ============================================================
+2	   TRAINING & PLACEMENT PORTAL — DESIGN SYSTEM
+3	   Palette: Deep Indigo Institutional + Amber Achievement Accent
+4	   ============================================================ */
+5	
+6	:root {
+7	  /* Brand palette */
+8	  --ink:        #0B1220;   /* near-black indigo, primary text/dark bg */
+9	  --indigo-900: #131B34;
+10	  --indigo-700: #1E2A52;
+11	  --indigo-500: #2F3E75;
+12	  --indigo-300: #7C8ADB;
+13	  --amber:      #E8A33D;   /* achievement / CTA accent */
+14	  --amber-soft: #F4C978;
+15	  --mist:       #F6F7FB;   /* light bg */
+16	  --paper:      #FFFFFF;
+17	  --line:       rgba(19, 27, 52, 0.10);
+18	  --ok:         #1E9E6B;
+19	  --warn:       #D9822B;
+20	  --danger:     #D94F4F;
+21	
+22	  --text-1: #131B34;
+23	  --text-2: #545E7D;
+24	  --text-3: #8891AC;
+25	
+26	  --radius-sm: 8px;
+27	  --radius-md: 14px;
+28	  --radius-lg: 22px;
+29	
+30	  --shadow-1: 0 1px 2px rgba(19,27,52,0.06), 0 2px 8px rgba(19,27,52,0.05);
+31	  --shadow-2: 0 8px 30px rgba(19,27,52,0.10);
+32	  --shadow-glow: 0 0 0 1px rgba(232,163,61,0.35), 0 8px 24px rgba(232,163,61,0.18);
+33	
+34	  --font-display: 'Fraunces', 'Georgia', serif;
+35	  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+36	  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+37	
+38	  color-scheme: light;
+39	}
+40	
+41	[data-theme="dark"] {
+42	  --mist: #0B1220;
+43	  --paper: #131B34;
+44	  --line: rgba(255,255,255,0.08);
+45	  --text-1: #EDEFF7;
+46	  --text-2: #AEB6D4;
+47	  --text-3: #7B84A6;
+48	  --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+49	  --shadow-2: 0 8px 30px rgba(0,0,0,0.45);
+50	  color-scheme: dark;
+51	}
+52	
+53	* { box-sizing: border-box; }
+54	
+55	html { scroll-behavior: smooth; }
+56	
+57	body {
+58	  margin: 0;
+59	  font-family: var(--font-body);
+60	  background: var(--mist);
+61	  color: var(--text-1);
+62	  -webkit-font-smoothing: antialiased;
+63	  transition: background .25s ease, color .25s ease;
+64	}
+65	
+66	h1, h2, h3, .display {
+67	  font-family: var(--font-display);
+68	  font-weight: 600;
+69	  letter-spacing: -0.01em;
+70	  color: var(--text-1);
+71	}
+72	
+73	a { color: inherit; text-decoration: none; }
+74	
+75	:focus-visible {
+76	  outline: 2px solid var(--amber);
+77	  outline-offset: 2px;
+78	}
+79	
+80	@media (prefers-reduced-motion: reduce) {
+81	  *, *::before, *::after {
+82	    animation-duration: 0.001ms !important;
+83	    transition-duration: 0.001ms !important;
+84	  }
+85	}
+86	
+87	/* ---------------- Glass surfaces ---------------- */
+88	
+89	.glass {
+90	  background: rgba(255,255,255,0.6);
+91	  backdrop-filter: blur(16px) saturate(140%);
+92	  -webkit-backdrop-filter: blur(16px) saturate(140%);
+93	  border: 1px solid rgba(255,255,255,0.4);
+94	  box-shadow: var(--shadow-1);
+95	}
+96	
+97	[data-theme="dark"] .glass {
+98	  background: rgba(19,27,52,0.55);
+99	  border: 1px solid rgba(255,255,255,0.08);
+100	}
+101	
+102	.card {
+103	  background: var(--paper);
+104	  border: 1px solid var(--line);
+105	  border-radius: var(--radius-md);
+106	  box-shadow: var(--shadow-1);
+107	  padding: 1.5rem;
+108	  transition: transform .2s ease, box-shadow .2s ease;
+109	}
+110	.card:hover { box-shadow: var(--shadow-2); }
+111	
+112	.gradient-hero {
+113	  background:
+114	    radial-gradient(60% 80% at 15% 0%, rgba(124,138,219,0.35), transparent 60%),
+115	    radial-gradient(50% 60% at 100% 10%, rgba(232,163,61,0.25), transparent 60%),
+116	    linear-gradient(180deg, var(--indigo-900) 0%, var(--ink) 100%);
+117	  color: #EDEFF7;
+118	}
+119	
+120	/* ---------------- Buttons ---------------- */
+121	
+122	.btn {
+123	  display: inline-flex;
+124	  align-items: center;
+125	  justify-content: center;
+126	  gap: .5rem;
+127	  padding: .7rem 1.4rem;
+128	  border-radius: var(--radius-sm);
+129	  font-weight: 600;
+130	  font-size: .92rem;
+131	  border: 1px solid transparent;
+132	  cursor: pointer;
+133	  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+134	}
+135	.btn:active { transform: translateY(1px); }
+136	
+137	.btn-primary {
+138	  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-soft) 100%);
+139	  color: var(--ink);
+140	  box-shadow: 0 6px 20px rgba(232,163,61,0.35);
+141	}
+142	.btn-primary:hover { box-shadow: 0 8px 26px rgba(232,163,61,0.5); }
+143	
+144	.btn-outline {
+145	  background: transparent;
+146	  border-color: var(--line);
+147	  color: var(--text-1);
+148	}
+149	.btn-outline:hover { border-color: var(--amber); }
+150	
+151	.btn-ghost { background: transparent; color: var(--text-2); }
+152	
+153	/* ---------------- Forms ---------------- */
+154	
+155	.form-control {
+156	  width: 100%;
+157	  padding: .75rem 1rem;
+158	  border-radius: var(--radius-sm);
+159	  border: 1px solid var(--line);
+160	  background: var(--paper);
+161	  color: var(--text-1);
+162	  font-family: var(--font-body);
+163	  font-size: .95rem;
+164	  transition: border-color .15s ease, box-shadow .15s ease;
+165	}
+166	.form-control:focus {
+167	  border-color: var(--amber);
+168	  box-shadow: 0 0 0 3px rgba(232,163,61,0.18);
+169	  outline: none;
+170	}
+171	.form-label {
+172	  font-size: .82rem;
+173	  font-weight: 600;
+174	  color: var(--text-2);
+175	  margin-bottom: .4rem;
+176	  display: block;
+177	}
+178	
+179	/* ---------------- Layout: dashboard shell ---------------- */
+180	
+181	.app-shell { display: flex; min-height: 100vh; }
+182	
+183	.sidebar {
+184	  width: 260px;
+185	  flex-shrink: 0;
+186	  background: var(--indigo-900);
+187	  color: #EDEFF7;
+188	  padding: 1.5rem 1rem;
+189	  position: sticky;
+190	  top: 0;
+191	  height: 100vh;
+192	  overflow-y: auto;
+193	}
+194	
+195	.sidebar .brand {
+196	  display: flex; align-items: center; gap: .6rem;
+197	  padding: .5rem .5rem 1.5rem;
+198	  font-family: var(--font-display);
+199	  font-size: 1.1rem;
+200	  font-weight: 700;
+201	  color: #fff;
+202	}
+203	
+204	.sidebar .nav-link {
+205	  display: flex; align-items: center; gap: .75rem;
+206	  padding: .7rem .9rem;
+207	  border-radius: var(--radius-sm);
+208	  color: #AEB6D4;
+209	  font-size: .9rem;
+210	  font-weight: 500;
+211	  margin-bottom: .2rem;
+212	  transition: background .15s ease, color .15s ease;
+213	}
+214	.sidebar .nav-link:hover { background: rgba(255,255,255,0.06); color: #fff; }
+215	.sidebar .nav-link.active {
+216	  background: rgba(232,163,61,0.15);
+217	  color: var(--amber-soft);
+218	}
+219	.sidebar .nav-section {
+220	  font-size: .7rem;
+221	  text-transform: uppercase;
+222	  letter-spacing: .08em;
+223	  color: var(--text-3);
+224	  margin: 1.2rem .9rem .4rem;
+225	}
+226	
+227	.main-content { flex: 1; min-width: 0; }
+228	
+229	.topbar {
+230	  position: sticky;
+231	  top: 0;
+232	  z-index: 10;
+233	  display: flex;
+234	  align-items: center;
+235	  justify-content: space-between;
+236	  padding: 1rem 1.5rem;
+237	  background: var(--paper);
+238	  border-bottom: 1px solid var(--line);
+239	}
+240	
+241	.content-area { padding: 1.75rem; }
+242	
+243	/* Stat cards */
+244	.stat-card {
+245	  border-radius: var(--radius-md);
+246	  padding: 1.4rem;
+247	  background: var(--paper);
+248	  border: 1px solid var(--line);
+249	  box-shadow: var(--shadow-1);
+250	}
+251	.stat-card .stat-value {
+252	  font-family: var(--font-display);
+253	  font-size: 2rem;
+254	  font-weight: 700;
+255	}
+256	.stat-card .stat-label { color: var(--text-2); font-size: .85rem; }
+257	
+258	/* Progress meter */
+259	.meter {
+260	  height: 8px;
+261	  border-radius: 99px;
+262	  background: var(--line);
+263	  overflow: hidden;
+264	}
+265	.meter-fill {
+266	  height: 100%;
+267	  border-radius: 99px;
+268	  background: linear-gradient(90deg, var(--amber) 0%, var(--amber-soft) 100%);
+269	  transition: width .6s ease;
+270	}
+271	
+272	/* Badges */
+273	.badge-status {
+274	  font-size: .72rem;
+275	  font-weight: 700;
+276	  text-transform: uppercase;
+277	  letter-spacing: .04em;
+278	  padding: .3rem .6rem;
+279	  border-radius: 99px;
+280	}
+281	.badge-applied { background: rgba(124,138,219,0.15); color: var(--indigo-500); }
+282	.badge-shortlisted { background: rgba(232,163,61,0.15); color: var(--warn); }
+283	.badge-selected { background: rgba(30,158,107,0.15); color: var(--ok); }
+284	.badge-rejected { background: rgba(217,79,79,0.15); color: var(--danger); }
+285	
+286	/* Theme toggle */
+287	.theme-toggle {
+288	  width: 42px; height: 24px;
+289	  border-radius: 99px;
+290	  background: var(--line);
+291	  position: relative;
+292	  cursor: pointer;
+293	  border: none;
+294	}
+295	.theme-toggle::after {
+296	  content: '';
+297	  position: absolute;
+298	  top: 2px; left: 2px;
+299	  width: 20px; height: 20px;
+300	  border-radius: 50%;
+301	  background: var(--amber);
+302	  transition: transform .2s ease;
+303	}
+304	[data-theme="dark"] .theme-toggle::after { transform: translateX(18px); }
+305	
+306	/* Utility */
+307	.text-muted-2 { color: var(--text-2); }
+308	.text-muted-3 { color: var(--text-3); }
+309	.divider { border-top: 1px solid var(--line); }
+310	
+311	@media (max-width: 900px) {
+312	  .sidebar { position: fixed; left: -280px; z-index: 50; transition: left .25s ease; }
+313	  .sidebar.open { left: 0; }
+314	  .content-area { padding: 1rem; }
+315	}
